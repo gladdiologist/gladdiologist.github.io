@@ -1,0 +1,153 @@
+<head>
+<!-- jQuery -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- BEGIN TimelineJS -->
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+<script>
+	var data = {
+		"timeline":
+		{
+			"headline":"Yohann BARRE - Architecte Big Data",
+			"type":"default",
+			"text":"<p>Applications temps réel, visualisation de données, Big Data</p>",
+			
+			"date": [
+				{
+					"startDate":"2009",
+					"endDate":"2013",
+					"headline":"Middleware CTI Open Source v1.0",
+					"text":"<p>Un gadget windows pour contrôler son téléphone IP.</p><p>Le premier CTI Web multiplateforme. Consulter la <a target='_blank' href='datasheet/talk.pdf'>datasheet</a></p><p><strong>SOAP, Long polling, ASP.NET, Java</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/gadget.png",
+						"thumbnail":"img/talk.png",
+						"credit":"Youtube - 2010",
+						"caption": "Extrait de la demo du gadget Windows 7, https://www.youtube.com/watch?v=83mi0SRGT2I"
+					}
+					
+				},
+				{
+					"startDate":"2010",
+					"endDate":"2013",
+					"headline":"Pilotage temps réel",
+					"text":"<p>Wallboard pour centres de contacts.</p><p>Extractions et traitement de données, animation de données</p><p>Consulter la <a target='_blank' href='datasheet/moovis.pdf'>datasheet</a></p><p><strong>ASP.NET, Java</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/logem_loiret.png",
+						"thumbnail":"img/moovis.png",
+						"credit":"Logem Loiret",
+						"caption": "Wallboard temps réel"
+					}
+					
+				},
+				{
+					"startDate":"2013",
+					"endDate":"2013",
+					"headline":"Animation de données",
+					"text":"<p>Animation de données.</p><p>Première intelligence artificielle, prédiction du temps d'attente d'un appel.</p><p></p><p><strong>D3JS, brain.js, Playframework</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/animation.png",
+						"thumbnail":"img/moovis.png",
+						"credit":"MOOVIS",
+						"caption": "Storyboard - IA"
+					}
+					
+				},
+				{
+					"startDate":"2014",
+					"endDate":"2018",
+					"headline":"ETL",
+					"text":"<p>Extractions et traitement de données</p></p><p><strong>Playframework, TALEND</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/moovis_etl.png",
+						"thumbnail":"img/moovis.png",
+						"credit":"Crédit du NORD",
+						"caption": "Projet STELLA"
+					}
+					
+				},
+				{
+					"startDate":"2013",
+					"endDate":"2018",
+					"headline":"Middleware CTI Open Source v2.0",
+					"text":"<p>Playframework, AKKA, WebSocket</p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/console_talk.png",
+						"thumbnail":"img/talk.png",
+						"credit":"TALK",
+						"caption": "Console de supervision CTI Cisco"
+					}
+					
+				},
+				{
+					"startDate":"2015",
+					"endDate":"2015",
+					"headline":"Big Data!",
+					"text":"<p>EDX, IEEE Internationel Conference on Big Data 2015 (San Francisco)</p><p><strong>Machine Learning, Data Science, Spark</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/bigdata.jpg",
+						"thumbnail":"img/ieee.png",
+						"credit":"SUPINFO",
+						"caption": ""
+					}
+					
+				},
+				{
+					"startDate":"2016,10,01",
+					"endDate":"2017,03,01",
+					"headline":"RTB AdExchange - GLADDIATOR",
+					"text":"<p>Achat d'espace publicitaire en temps réel.</p><p>20K req/s.</p><p>35M de display par jour.</p><p>30 Go de données collectées par jour</p><p><strong>Playframework, Lagom, Akka, Cassandra, Kafka, Machine Learning, Spark, Grafana, Kubernetes, Jenkins, Juju, Azure, LXD, InfluxDB</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/perf.png",
+						"thumbnail":"img/iab.png",
+						"credit":"DIGIGLADD",
+						"caption": "Supervision du bidder"
+					}
+					
+				},
+				{
+					"startDate":"2018,01,01",
+					"endDate":"2018",
+					"headline":"Micro services, Reactive platform",
+					"text":"<p>MOOVIS et TALK, powered by Lagom.</p><p><a target='_blank' href='https://github.com/digigladd/moovis'>MOOVIS sur Github</a></p><p><a target='_blank' href='https://gitlab.com/AG2RLM/Reactive_TALK'>TALK sur Gitlab</a></p><p><a target='_blank' href='https://github.com/gladdiologist/grafana'>Fork Grafana Github</a></p><p><strong>Lagom, Akka, Grafana, Docker, InfluxDB, Zookeeper</strong></p>",
+					
+					"classname":"",
+					"asset": {
+						"media":"img/moovis_for_avaya.png",
+						"thumbnail":"img/talk.png",
+						"credit":"DIGIGLADD",
+						"caption": "Wallboard Avaya"
+					}
+					
+				}
+				
+			]
+		}
+	}
+	$(document).ready(function() {
+		createStoryJS({
+			type:		'timeline',
+			width:		'1900',
+			height:		'800',
+			source:		data,
+			embed_id:	'my-timeline'
+		});
+	});
+</script>
+<!-- END TimelineJS -->
+</head>
+<body>
+<div id="my-timeline"></div>
+</body>
