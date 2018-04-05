@@ -55,7 +55,7 @@ var getFontName = function(d) {
 var width = 960,
     height = 250,
     padding = 1, // separation between same-color nodes
-    clusterPadding = 2, // separation between different-color nodes
+    clusterPadding = 10, // separation between different-color nodes
     maxRadius = 3;
 
 var n = 34, // total number of nodes
@@ -88,8 +88,8 @@ d3.layout.pack()
 var force = d3.layout.force()
     .nodes(nodes)
     .size([width, height])
-    .gravity(.02)
-    .charge(0)
+    .gravity(.1)
+    .charge(1)
     .on("tick", tick)
     .start();
 
@@ -97,12 +97,13 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-svg.append("text").attr("x",320).attr("y",150).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").text("DIGIGLADD")
+svg.append("text").attr("x",300).attr("y",152).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").text("DIGIGLADD")
 	
 var node = svg.selectAll("circle")
     .data(nodes)
   .enter().append("circle")
     .style("fill", function(d) { return color(d.cluster); })
+	.style("fill-opacity", 0.5)
     .call(force.drag);
 
 node.transition()
