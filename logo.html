@@ -2,20 +2,61 @@
 <meta charset="utf-8">
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
+<div style="width:100%; height=50px">
+<label>Change font</label>
+<select id="fonts">
+	
+</select>
+</div>
 <script>
+
+	var loaded = [];
+
+	var loadFont = function() {
+		var font = d3.select("#fonts").property("value");
+		
+		if (loaded.indexOf(font) < 0) {
+			WebFont.load({
+				google: {
+					families: [font]
+				},
+				timeout:5000,
+				fontactive: function(familyName,fvd){ 
+					
+					console.log("font active " + familyName)
+					updateFont(familyName)
+				  }
+			});
+		}
+		
+	}
+	
+</script>
+<script>
+
+var fonts = ["Roboto","Open Sans","Lato","Roboto Condensed","Montserrat","Oswald","Source Sans Pro","Slabo 27px","Raleway","PT Sans","Roboto Slab","Merriweather","Open Sans Condensed","Ubuntu","Noto Sans","Playfair Display","Lora","Poppins","PT Serif","Roboto Mono","Titillium Web","Arimo","Muli","PT Sans Narrow","Noto Serif","Fira Sans","Nunito","Inconsolata","Indie Flower","Dosis","Anton","Crimson Text","Bitter","Oxygen","Nanum Gothic","Cabin","Josefin Sans","Fjalla One","Lobster","Work Sans","Hind","Arvo","Libre Baskerville","Quicksand","Yanone Kaffeesatz","Exo 2","Rubik","Abril Fatface","Pacifico","Libre Franklin","Abel","Karla","Nunito Sans","Merriweather Sans","Varela Round","Shadows Into Light","Ubuntu Condensed","Cormorant Garamond","Asap","Bree Serif","Archivo Narrow","Gloria Hallelujah","Dancing Script","Signika","Questrial","Acme","Source Code Pro","Source Serif Pro","Exo","Play","Amatic SC","Maven Pro","EB Garamond","Berkshire Swash","Francois One","Patua One","Cairo","Kanit","Comfortaa","PT Sans Caption","Crete Round","Cuprum","Rokkitt","Shrikhand","Vollkorn","Catamaran","Ropa Sans","Hind Siliguri","Cinzel","Poiret One","Rajdhani","Passion One","Old Standard TT","Press Start 2P","Great Vibes","Alegreya","Heebo","Permanent Marker","Yantramanav","Philosopher","Righteous","Satisfy","Noticia Text","Courgette","Archivo Black","Pathway Gothic One","Russo One","Kaushan Script","Concert One","Cookie","Alegreya Sans","Orbitron","ABeeZee","Teko","Josefin Slab","Quattrocento Sans","Domine","News Cycle","Cardo","Lobster Two","Amaranth","Monda","Gudea","Istok Web","Quattrocento","Tinos","Assistant","Didact Gothic","Pontano Sans","Amiri","Prompt","Economica","Alfa Slab One","Fira Sans Condensed","Sanchez","Sacramento","Monoton","Jura","Handlee","Kalam","Playfair Display SC","Volkhov","Arapey","Fredoka One","Caveat","Cabin Condensed","Marck Script","Fira Sans Extra Condensed","Hammersmith One","Unica One","BenchNine","Tangerine","Khand","Ruda","Neuton","Armata","Audiowide","Pragati Narrow","Vidaloka","Nanum Myeongjo","Rufina","Special Elite","Boogaloo","Shadows Into Light Two","Cantarell","Glegoo","Bangers","Antic Slab","Architects Daughter","Sorts Mill Goudy","Merienda","Luckiest Guy","Kreon","PT Mono","Neucha","Bevan","Caveat Brush","Hind Vadodara","Forum","Gentium Basic","Hind Madurai","Enriqueta","Patrick Hand","Changa","Julius Sans One","Yrsa","Aldrich","Arsenal","Scada","Prata","Magra","Yellowtail","Homemade Apple","Sintony","Khula","Ultra","Signika Negative","Basic","Adamina","Covered By Your Grace","Actor","Alice","Frank Ruhl Libre","Cabin Sketch","Gentium Book Basic","Itim","Bad Script","Arima Madurai","Barlow Condensed","Sigmar One","Damion","Playball","Fugaz One","VT323","Prosto One","Rock Salt","Martel","Arbutus Slab","Varela","Advent Pro","Alex Brush","Chivo","Montserrat Alternates","Barlow","Nothing You Could Do","Chewy","Lusitana","Contrail One","Alegreya Sans SC","Paytone One","Overpass","Oleo Script","Rancho","Share","Coustard","Gochi Hand","PT Serif Caption","Coda","Ubuntu Mono","Rambla","Viga","Ovo","Cantata One","Lustria","Rammetto One","Just Another Hand","Sarala","Barlow Semi Condensed","Allura","Spinnaker","Saira Condensed","Marmelad","Electrolize","Niconne","Syncopate","Michroma","Nobile","Molengo","Baloo","Marcellus","Overlock","Zilla Slab","Carter One","Cousine","Kameron","Coming Soon","Carme","Pinyon Script","Slabo 13px","Limelight","Saira Extra Condensed","Marcellus SC","Share Tech","Ceviche One","Quantico","Telex","Jockey One","Parisienne","Marvel","Reenie Beanie","Karma","Oranienbaum","Black Ops One","Candal","Radley","Love Ya Like A Sister","Freckle Face","Copse","Days One","Leckerli One","Voltaire","Squada One","Lateef","Antic","Average","Mr Dafoe","Rozha One","Pridi","Fauna One","Aladin","Hind Guntur","Reem Kufi","Grand Hotel","Carrois Gothic","Cormorant","El Messiri","Changa One","Puritan","Mitr","Anonymous Pro","Rasa","Alef","Palanquin","Rochester","Fredericka the Great","Italianno","Taviraj","Annie Use Your Telescope","Allerta","Halant","Martel Sans","Lalezar","Norican","Nixie One","Cinzel Decorative","Goudy Bookletter 1911","Yesteryear","Bubblegum Sans","Cutive Mono","Tauri","Nanum Gothic Coding","Aclonica","Alegreya SC","Bowlby One SC","Allerta Stencil","Saira","Homenaje","Tenor Sans","Nanum Brush Script","Caudex","Metrophobic","Cutive","Space Mono","Fanwood Text","Kurale","Doppio One","Archivo","Graduate","Judson","Bungee Inline","Average Sans","Inder","Racing Sans One","Londrina Solid","Rosario","Nanum Pen Script","Kelly Slab","The Girl Next Door","Calligraffitti","Chau Philomene One","Abhaya Libre","Quando","Petit Formal Script","Jaldi","Schoolbell","Bowlby One","Six Caps","GFS Didot","IM Fell English SC","Biryani","Andada","Gilda Display","Saira Semi Condensed","Lilita One","Montez","Share Tech Mono","Scheherazade","Mada","Sue Ellen Francisco","Give You Glory","Lekton","Baloo Paaji","Merienda One","Andika","Pompiere","Chicle","Balthazar","Arizonia","Unna","Pangolin","Herr Von Muellerhoff","Qwigley","Spectral","Delius","Gravitas One","Eczar","Happy Monkey","Yeseva One","Trocchi","Trirong","Averia Serif Libre","Belleza","Faster One","Chelsea Market","IM Fell Double Pica","Encode Sans Condensed","Convergence","Bungee","Fontdiner Swanky","Oregano","Mr De Haviland","Short Stack","Knewave","Mukta","Alike","Miriam Libre","Capriola","Wire One","Krona One","Zeyada","Arya","Mako","Titan One","Cambo","Expletus Sans","Allan","Mate","Cambay","Secular One","Stalemate","Vast Shadow","Artifika","Seaweed Script","Gafata","Gruppo","Duru Sans","Gabriela","Kristi","Mouse Memoirs","La Belle Aurore","Poly","Poller One","Yatra One","Walter Turncoat","Megrim","Carrois Gothic SC","IM Fell English","Imprima","Patrick Hand SC","Baumans","Belgrano","Maitree","Hanuman","Anaheim","Brawler","Athiti","Oxygen Mono","UnifrakturMaguntia","Spirax","Fondamento","Iceland","Lily Script One","Podkova","Risque","Waiting for the Sunrise","Amiko","Rouge Script","Unkempt","Buenard","Bilbo Swash Caps","Fira Mono","Delius Swash Caps","Stardos Stencil","Orienta","Cherry Swash","Rye","Federo","Proza Libre","Strait","Emilys Candy","Clicker Script","Palanquin Dark","Frijole","Meddon","Baloo Bhaina","Shojumaru","Crafty Girls","NTR","Lemonada","Rubik Mono One","IM Fell DW Pica","Overlock SC","Lemon","Oleo Script Swash Caps","Voces","Cedarville Cursive","Mukta Vaani","Pattaya","Vibur","Loved by the King","Coda Caption","Harmattan","Gurajada","Just Me Again Down Here","Bilbo","Italiana","Dawning of a New Day","Port Lligat Slab","Mirza","Holtwood One SC","Euphoria Script","Tienne","Over the Rainbow","Raleway Dots","Denk One","Geo","Sofia","Crushed","Vampiro One","Tulpen One","Salsa","Asap Condensed","Amethysta","Sniglet","Baloo Chettan","Creepster","Suez One","Shanti","Baloo Tamma","Fjord One","Nova Mono","Bentham","Kotta One","Prociono","Finger Paint","Ledger","Wallpoet","David Libre","Nosifer","Aguafina Script","Bungee Shade","Corben","Cormorant Infant","Sriracha","Londrina Outline","Cantora One","Headland One","Ramabhadra","Cherry Cream Soda","Mallanna","Suranna","Padauk","Katibeh","Life Savers","Aref Ruqaa","Simonetta","Medula One","Encode Sans","Codystar","Rakkas","Engagement","Skranji","Fenix","Averia Sans Libre","McLaren","Sansita","Nova Square","Laila","Dorsa","Condiment","Mystery Quest","Encode Sans Semi Condensed","Habibi","Metamorphous","Dynalight","Sumana","Nova Slim","Quintessential","Slackey","Cagliostro","Vesper Libre","Mogra","Mountains of Christmas","Sarpanch","Amarante","Princess Sofia","Bubbler One","Mate SC","Mandali","League Script","Kranky","Cormorant SC","Inika","Flamenco","Antic Didone","Port Lligat Sans","Rosarivo","Numans","Maiden Orange","Stint Ultra Expanded","Delius Unicase","Bellefair","Averia Libre","Pirata One","Donegal One","Englebert","Sail","Pavanam","Montserrat Subrayada","Sarina","Elsie","Mrs Saint Delafield","Kite One","Sancreek","Ribeye","Junge","Ranchers","Nova Flat","Ruslan Display","Chonburi","Fascinate Inline","Khmer","Germania One","Rationale","Alike Angular","Esteban","Wendy One","Buda","Jim Nightshade","Dekko","Kadwa","Linden Hill","Milonga","Stoke","Battambang","Miniver","Rhodium Libre","Trade Winds","Scope One","Asul","Croissant One","Henny Penny","Ruluko","IM Fell Great Primer","IM Fell French Canon","Text Me One","Peralta","Baloo Bhai","Baloo Thambi","UnifrakturCook","MedievalSharp","Fresca","Paprika","Stint Ultra Condensed","Swanky and Moo Moo","Joti One","Spectral SC","Kavoon","Sonsie One","Amita","Timmana","Almendra","Macondo","Nova Round","IM Fell DW Pica SC","Offside","Averia Gruesa Libre","Monsieur La Doulaise","Mukta Malar","Redressed","Julee","Coiny","Glass Antiqua","IBM Plex Sans Condensed","Griffy","Uncial Antiqua","Meie Script","Plaster","IM Fell Double Pica SC","Encode Sans Expanded","Baloo Bhaijaan","Autour One","Galindo","Content","Mukta Mahee","Della Respira","Lovers Quarrel","Revalia","Sedgwick Ave","BioRhyme","Akronim","Diplomata","Flavors","Asset","Sunshiney","Angkor","Eagle Lake","Koulen","Iceberg","Farsan","Wellfleet","Cormorant Upright","IBM Plex Sans","Ruthie","Petrona","Marko One","Montaga","Snippet","Underdog","Oldenburg","Butcherman","Caesar Dressing","Snowburst One","Inknut Antiqua","Ranga","Molle","Purple Purse","Londrina Shadow","Lancelot","Sura","Trykker","Spicy Rice","New Rocker","Ewert","Bigshot One","Monofett","Jolly Lodger","Ravi Prakash","Irish Grover","Ruge Boogie","Sahitya","Atma","Metal Mania","Galdeano","Rum Raisin","Original Surfer","Goblin One","Sree Krushnadevaraya","Smythe","Ramaraja","Overpass Mono","Ribeye Marrow","Arbutus","Chango","Lakki Reddy","Jomhuria","Mrs Sheppards","Nokora","Atomic Age","Modern Antiqua","Galada","Dr Sugiyama","Sirin Stencil","Miltonian Tattoo","Seymour One","Margarine","Keania One","IM Fell French Canon SC","Almendra SC","Astloch","Jacques Francois","Smokum","Elsie Swash Caps","Tillana","Kenia","Mina","Odor Mean Chey","GFS Neohellenic","Bonbon","Jacques Francois Shadow","Modak","Zilla Slab Highlight","Eater","Manuale","Piedra","IM Fell Great Primer SC","Diplomata SC","Faustina","Nova Oval","Felipa","Kavivanar","Barrio","Geostar Fill","Romanesco","Bayon","Miltonian","Passero One","Baloo Da","Devonshire","Asar","Meera Inimai","Freehand","Fascinate","Nova Script","Suwannaphum","Fruktur","Bokor","Londrina Sketch","Combo","Macondo Swash Caps","Trochut","Almendra Display","Metal","IBM Plex Serif","Warnes","Miss Fajardose","Nova Cut","Kantumruy","Bigelow Rules","Sedgwick Ave Display","Chathura","Bahiana","Siemreap","Moul","Dangrek","Supermercado One","Cormorant Unicase","Kumar One","Stalinist One","Vollkorn SC","Butterfly Kids","Emblema One","Sofadi One","Erica One","Gorditas","Bungee Outline","IBM Plex Mono","Sevillana","Hanalei","Federant","Aubrey","Tenali Ramakrishna","Geostar","Hanalei Fill","Taprom","Baloo Tammudu","Chela One","Libre Barcode 39 Text","Chenla","Peddana","Mr Bedfort","Gidugu","Kdam Thmor","Preahvihear","Bungee Hairline","Encode Sans Semi Expanded","Libre Barcode 39 Extended Text","Unlock","Fasthand","Moulpali","Libre Barcode 39 Extended","Dhurjati","Suravaram","Libre Barcode 39","Libre Barcode 128 Text","BioRhyme Expanded","Kumar One Outline","Libre Barcode 128","Poor Story","Yeon Sung","Kirang Haerang","Jua","Hi Melody","Song Myung","Stylish","Sunflower","Gothic A1","East Sea Dokdo","Black Han Sans","Black And White Picture","Dokdo","Cute Font","Do Hyeon","Gugi","Gaegu","Gamja Flower"]
+
+window.onload = function() {
+
+	d3.select("#fonts").on("change", loadFont);
+
+	var options = d3.select("#fonts").selectAll("option").data(fonts);
+	options.enter().append("option").attr("value",getFontName).text(getFontName);
+}
+
+var getFontName = function(d) {
+	return d;
+}
+
+//credits https://bl.ocks.org/mbostock/7882658
 
 var width = 960,
     height = 250,
     padding = 1, // separation between same-color nodes
     clusterPadding = 2, // separation between different-color nodes
-    maxRadius = 3,
-	nodeCabin,
-	nodeComfortaa,
-	nodeCapriola;
+    maxRadius = 3;
 
 var n = 34, // total number of nodes
     m = 10; // number of distinct clusters
@@ -44,49 +85,36 @@ d3.layout.pack()
       .key(function(d) { return d.cluster; })
       .entries(nodes)});
 
-var forceCabin = d3.layout.force()
+var force = d3.layout.force()
     .nodes(nodes)
     .size([width, height])
     .gravity(.02)
     .charge(0)
-    .on("tick", tickCabin)
+    .on("tick", tick)
     .start();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("text").attr("x",320).attr("y",150).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").text("DIGIGLADD")
 	
-var forceComfortaa = d3.layout.force()
-    .nodes(nodes)
-    .size([width, height])
-    .gravity(.02)
-    .charge(0)
-    .on("tick", tickComfortaa)
-    .start();
-	
-var forceCapriola = d3.layout.force()
-    .nodes(nodes)
-    .size([width, height])
-    .gravity(.02)
-    .charge(0)
-    .on("tick", tickCapriola)
-    .start();
+var node = svg.selectAll("circle")
+    .data(nodes)
+  .enter().append("circle")
+    .style("fill", function(d) { return color(d.cluster); })
+    .call(force.drag);
 
+node.transition()
+    .duration(750)
+    .delay(function(d, i) { return i * 5; })
+    .attrTween("r", function(d) {
+      var i = d3.interpolate(0, d.radius);
+      return function(t) { return d.radius = i(t); };
+    });
 
-function tickCabin(e) {
-  nodeCabin
-      .each(cluster(10 * e.alpha * e.alpha))
-      .each(collide(.5))
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
-}
-
-function tickComfortaa(e) {
-  nodeComfortaa
-      .each(cluster(10 * e.alpha * e.alpha))
-      .each(collide(.5))
-      .attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
-}
-
-function tickCapriola(e) {
-  nodeCapriola
+function tick(e) {
+  node
       .each(cluster(10 * e.alpha * e.alpha))
       .each(collide(.5))
       .attr("cx", function(d) { return d.x; })
@@ -140,81 +168,21 @@ function collide(alpha) {
   };
 }
 
-function comfortaa() {
-	var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+var t = d3.transition()
+    .duration(2500);
 
-
-svg.append("text").attr("x",325).attr("y",150).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").attr("font-family","Comfortaa").text("DIGIGLADD")
+var updateFont = function(font) {
+	var text = d3.select("text")
+		
 	
-nodeComfortaa = svg.selectAll("circle")
-    .data(nodes)
-  .enter().append("circle")
-    .style("fill", function(d) { return color(d.cluster); })
-    .call(forceComfortaa.drag);
-
-nodeComfortaa.transition()
-    .duration(750)
-    .delay(function(d, i) { return i * 5; })
-    .attrTween("r", function(d) {
-      var i = d3.interpolate(0, d.radius);
-      return function(t) { return d.radius = i(t); };
-    });
-
+	var minMax = d3.extent(d3.selectAll("circle").data(), function(d){ return d.x})
+	
+	text.attr("font-family",font).transition(t).attr("x", getX(minMax[0],text.node().getBBox().width))
 }
 
-function cabin() {
-	var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-svg.append("text").attr("x",325).attr("y",150).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").attr("font-family","Cabin").text("DIGIGLADD")
-	
-nodeCabin = svg.selectAll("circle")
-    .data(nodes)
-  .enter().append("circle")
-    .style("fill", function(d) { return color(d.cluster); })
-    .call(forceCabin.drag);
-
-nodeCabin.transition()
-    .duration(750)
-    .delay(function(d, i) { return i * 5; })
-    .attrTween("r", function(d) {
-      var i = d3.interpolate(0, d.radius);
-      return function(t) { return d.radius = i(t); };
-    });
-
+var getX = function(min,width) {
+	return min - 2 - width;
 }
-
-function capriola() {
-	var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-svg.append("text").attr("x",325).attr("y",150).attr("fill","dimgrey").attr("font-size",25).attr("font-weight","bold").attr("font-family","Capriola").text("DIGIGLADD")
-	
-nodeCapriola = svg.selectAll("circle")
-    .data(nodes)
-  .enter().append("circle")
-    .style("fill", function(d) { return color(d.cluster); })
-    .call(forceCapriola.drag);
-
-nodeCapriola.transition()
-    .duration(750)
-    .delay(function(d, i) { return i * 5; })
-    .attrTween("r", function(d) {
-      var i = d3.interpolate(0, d.radius);
-      return function(t) { return d.radius = i(t); };
-    });
-
-}
-
-comfortaa()
-cabin()
-capriola()
 
 </script>
 </body>
